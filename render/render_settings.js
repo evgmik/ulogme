@@ -6,15 +6,19 @@
 // may get mapped to just "Google Chrome".
 // these get applied in order they are specified, from top to bottom
 var title_mappings = [
-{pattern : /Google Chrome/, mapto : 'Google Chrome'},
-{pattern : /Firefox/, mapto : 'Google Chrome'}, // lol
+{pattern : /Google Chrome/, mapto : 'Browser'},
+{pattern : /Firefox/, mapto : 'Browser'},
+{pattern : /Pentadactyl/, mapto : 'Browser'},
+{pattern : /Tiny Tiny RSS/, mapto : 'News-rss'},
+{pattern : /YouTube/, mapto : 'Web-TV'},
 {pattern : /MATLAB/, mapto : 'Matlab'},
 {pattern : /Figure/, mapto : 'Matlab'},
 {pattern : /Inotebook/, mapto : 'INotebook'},
 {pattern : /.pdf/, mapto : 'Papers'},
-{pattern : /Gmail/, mapto : 'Gmail'},
-{pattern : /karpathy@/, mapto : 'Terminal'},
-{pattern : /Sublime Text/, mapto : 'SubText2'},
+{pattern : /Gmail/, mapto : 'email'},
+{pattern : /mutt/, mapto : 'email'},
+{pattern : /~\/src/, mapto : 'coding'},
+{pattern : /~\/jobs\/grants/, mapto : 'grants'},
 {pattern : /\.js.*Sublime Text/, mapto : 'SubText2 Coding'},
 {pattern : /\.py.*Sublime Text/, mapto : 'SubText2 Coding'},
 {pattern : /\.html.*Sublime Text/, mapto : 'SubText2 Coding'},
@@ -49,7 +53,6 @@ function mapwin(w) {
 // These groups will be rendered together in the "barcode view". For example, I like
 // to group my work stuff and play stuff together.
 var display_groups = [];
-display_groups.push(["Gmail", "Google Chrome", "MISC", "SubText2"]); // internet related
 display_groups.push(["Matlab", "SubText2 Coding", "INotebook", "Terminal", "Papers"]); // work related
 display_groups.push(["TeXworks"]); // paper writing related
 display_groups.push(["Locked Screen"]); // computer not being used 
@@ -60,7 +63,7 @@ display_groups.push(["Locked Screen"]); // computer not being used
 // classify as hacking, and they break "streaks" (events of focused hacking)
 // the implementation is currently quite hacky, experimental and contains 
 // many magic numbers.
-var hacking_titles = ["INotebook", "Terminal", "Matlab", "SubText2 Coding"];
+var hacking_titles = ["coding", "Matlab"];
 var draw_hacking = true; // by default turning this off
 
 // draw notes row?
